@@ -1,0 +1,5 @@
+require 'pdns/pdns'
+require 'pdns/dnsparse'
+require 'pdns/iscpdns'
+require 'pdns/bfkclient'
+require 'pdns/certeepdns'

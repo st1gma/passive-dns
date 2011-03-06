@@ -15,14 +15,18 @@ Jeweler::Tasks.new do |gem|
   gem.name = "passive-dns"
   gem.homepage = "http://github.com/chrislee35/passive-dns"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
-  gem.email = "chrislee-AT-gatechedu"
-  gem.authors = ["Chris Lee, PhD"]
+  gem.summary = %Q{Query passive DNS databases}
+  gem.description = %Q{This provides interfaces to various passive DNS databases to do the query and to normalize the responses.  The query tool also allows for recursive queries, using an SQLite3 database to keep state.}
+  gem.email = "rubygems@chrislee.dhs.org"
+  gem.authors = ["Chris Lee"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
-  #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
-  #  gem.add_development_dependency 'rspec', '> 1.2.3'
+  gem.add_runtime_dependency 'json', '> 1.4.3'
+  gem.add_runtime_dependency 'sqlite3', '>= 1.3.3'
+  gem.signing_key = "#{ENV['HOME']}/bin/ruby/rubygems/gem-private_key.pem"
+  gem.cert_chain  = ["#{ENV['HOME']}/bin/ruby/rubygems/gem-public_cert.pem"]
+  gem.executables = ["pdnstool"]
+  gem.files = FileList["{bin,lib}/**/*"].to_a
 end
 Jeweler::RubygemsDotOrgTasks.new
 
