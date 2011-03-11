@@ -13,7 +13,7 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "passive-dns"
-  gem.homepage = "http://github.com/chrislee35/passive-dns"
+  gem.homepage = "https://rubygems.org/gems/passive-dns"
   gem.license = "MIT"
   gem.summary = %Q{Query passive DNS databases}
   gem.description = %Q{This provides interfaces to various passive DNS databases to do the query and to normalize the responses.  The query tool also allows for recursive queries, using an SQLite3 database to keep state.}
