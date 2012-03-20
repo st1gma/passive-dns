@@ -55,8 +55,10 @@ module PassiveDNS
 		def lookup(label)
 			$stderr.puts "DEBUG: DNSParse.lookup(#{label})" if @debug
 			Timeout::timeout(240) {
-				year = Time.now.strftime("%Y")
-				url = "#{@base}#{label}&year=#{year.to_i - 1}"
+				year = Time.now.strftime("%Y").to_i
+				month = Time.now.strftime("%m").to_i
+				url = "#{@base}#{label}&year=#{year - 1}"
+				url = "#{@base}#{label}&year=#{year}" if month > 3
 				if label =~ /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\/\d{1,2}$/
 					url.gsub!(/query\.php/,'cidr.php')
 				elsif label =~ /\*$/
@@ -66,7 +68,6 @@ module PassiveDNS
 				url = URI.parse url
 				http = Net::HTTP.new(url.host, url.port)
 				http.use_ssl = (url.scheme == 'https')
-				http.ca_file = "#{ENV['HOME']}/bin/data/cacert.pem"
 				http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 				http.verify_depth = 5
 				request = Net::HTTP::Get.new(url.path+"?"+url.query)

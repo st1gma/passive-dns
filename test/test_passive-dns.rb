@@ -59,7 +59,7 @@ class TestPassiveDnsQuery < Test::Unit::TestCase
 	end
 
 	should "query CERTEE" do
-		rows = PassiveDNS::CERTEE.new.lookup("example.org");
+		rows = PassiveDNS::CERTEE.new.lookup("sim.cert.ee");
 		assert_not_nil(rows)
 		assert_not_nil(rows.to_s)
 		assert_not_nil(rows.to_xml)

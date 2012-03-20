@@ -33,6 +33,7 @@ require 'yaml'
 	def printresults(state,format,sep="\t")
 		case format
 		when 'text'
+			puts PassiveDNS::PDNSResult.members.join(sep)
 			puts state.to_s(sep)
 		when 'yaml'
 			puts state.to_yaml

@@ -8,7 +8,7 @@ module PassiveDNS
 		end
 		@@base = "http://www.bfk.de/bfk_dnslogger.html?query="
 		def parse(page,response_time)
-			line = page.split(/<table/).grep(/ id=\"logger\"/)
+			line = page.unpack('C*').pack('U*').split(/<table/).grep(/ id=\"logger\"/)
 			return [] unless line.length > 0
 			line = line[0].gsub(/[\t\n]/,'').gsub(/<\/table.*/,'')
 			rows = line.split(/<tr.*?>/)
