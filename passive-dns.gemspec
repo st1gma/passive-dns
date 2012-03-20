@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{passive-dns}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Chris Lee"]
-  s.cert_chain = ["/Users/chris/bin/ruby/rubygems/gem-public_cert.pem"]
-  s.date = %q{2011-03-06}
+  s.cert_chain = ["/Users/chris/Documents/projects/rubygems/passive-dns/../gem-public_cert.pem"]
+  s.date = %q{2012-03-19}
   s.default_executable = %q{pdnstool}
   s.description = %q{This provides interfaces to various passive DNS databases to do the query and to normalize the responses.  The query tool also allows for recursive queries, using an SQLite3 database to keep state.}
   s.email = %q{rubygems@chrislee.dhs.org}
@@ -29,11 +29,11 @@ Gem::Specification.new do |s|
     "lib/pdns/pdns.rb",
     "lib/util/structformatter.rb"
   ]
-  s.homepage = %q{http://github.com/chrislee35/passive-dns}
+  s.homepage = %q{https://rubygems.org/gems/passive-dns}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.5.0}
-  s.signing_key = %q{/Users/chris/bin/ruby/rubygems/gem-private_key.pem}
+  s.rubygems_version = %q{1.3.7}
+  s.signing_key = %q{/Users/chris/Documents/projects/rubygems/passive-dns/../gem-private_key.pem}
   s.summary = %q{Query passive DNS databases}
   s.test_files = [
     "test/helper.rb",
@@ -41,6 +41,7 @@ Gem::Specification.new do |s|
   ]
 
   if s.respond_to? :specification_version then
+    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
@@ -49,7 +50,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<simplecov>, [">= 0"])
       s.add_runtime_dependency(%q<json>, ["> 1.4.3"])
       s.add_runtime_dependency(%q<sqlite3>, [">= 1.3.3"])
     else
@@ -58,7 +59,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
-      s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<simplecov>, [">= 0"])
       s.add_dependency(%q<json>, ["> 1.4.3"])
       s.add_dependency(%q<sqlite3>, [">= 1.3.3"])
     end
@@ -68,7 +69,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
-    s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<simplecov>, [">= 0"])
     s.add_dependency(%q<json>, ["> 1.4.3"])
     s.add_dependency(%q<sqlite3>, [">= 1.3.3"])
   end
