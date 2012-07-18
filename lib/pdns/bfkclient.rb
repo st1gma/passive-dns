@@ -29,7 +29,7 @@ module PassiveDNS
 							######### FIX BLANKS FOR MX
 							
 					end
-					res << PDNSResult.new('BFK',response_time,r[0],r[2],r[1],nil,nil,nil)
+					res << PDNSResult.new('BFK',response_time,r[0],r[2],r[1])
 				end
 			end
 			res

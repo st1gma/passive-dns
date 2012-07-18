@@ -35,9 +35,9 @@ module PassiveDNS
 				record['rdata'] = [record['rdata']] if record['rdata'].class == String
 				record['rdata'].each do |rdata|
 					if record['time_first']
-						res << PDNSResult.new('ISC',response_time,record['rrname'],rdata,record['rrtype'],0,Time.at(record['time_first'].to_i).utc.strftime("%Y-%m-%dT%H:%M:%SZ"),Time.at(record['time_last'].to_i).utc.strftime("%Y-%m-%dT%H:%M:%SZ"))
+						res << PDNSResult.new('ISC',response_time,record['rrname'],rdata,record['rrtype'],0,Time.at(record['time_first'].to_i).utc.strftime("%Y-%m-%dT%H:%M:%SZ"),Time.at(record['time_last'].to_i).utc.strftime("%Y-%m-%dT%H:%M:%SZ"),record['count'])
 					else
-						res << PDNSResult.new('ISC',response_time,record['rrname'],rdata,record['rrtype'],nil,nil,nil)
+						res << PDNSResult.new('ISC',response_time,record['rrname'],rdata,record['rrtype'])
 					end
 				end
 			end
@@ -70,6 +70,7 @@ module PassiveDNS
 				t1 = Time.now
 				response = http.request(request)
 				t2 = Time.now
+				$stderr.puts response if @debug
 				parse_json(response.body,t2-t1)
 			}
 		rescue Timeout::Error => e

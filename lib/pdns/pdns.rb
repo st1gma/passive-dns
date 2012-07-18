@@ -11,7 +11,7 @@ require 'getoptlong'
 require 'sqlite3'
 
 module PassiveDNS
-	class PDNSResult < Struct.new(:source, :response_time, :query, :answer, :rrtype, :ttl, :firstseen, :lastseen); end
+	class PDNSResult < Struct.new(:source, :response_time, :query, :answer, :rrtype, :ttl, :firstseen, :lastseen, :count); end
 	class PDNSQueueEntry < Struct.new(:query, :state, :level); end
 	class PDNSToolState
 		attr_accessor :debug
